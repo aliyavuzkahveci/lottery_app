@@ -1,0 +1,55 @@
+# prospector configuration file
+
+---
+output-format: grouped
+
+strictness: veryhigh
+doc-warnings: false
+test-warnings: true
+member-warnings: false
+autodetect: false
+
+ignore-paths:
+  - docs
+
+vulture:
+  run: false
+
+dodgy:
+  run: true
+
+frosted:
+  run: false
+
+mccabe:
+  run: false
+
+profile-validator:
+  run: true
+
+pyflakes:
+  run: true
+  disable:
+    - F401
+    - F811
+
+pylint:
+  run: true
+
+pep8:
+  full: true
+  options:
+    max-line-length: 120
+  disable:
+    - E203
+    - E231
+
+pep257:
+    disable: [
+        # Disable because not part of PEP257 official convention:
+        # see http://pep257.readthedocs.io/en/latest/error_codes.html
+        D203,  # 1 blank line required before class docstring
+        D212,  # Multi-line docstring summary should start at the first line
+        D213,  # Multi-line docstring summary should start at the second line
+        D404,  # First word of the docstring should not be This
+    ]

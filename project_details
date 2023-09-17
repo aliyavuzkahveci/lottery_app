@@ -1,0 +1,45 @@
+You will need to create a service that handles a lottery system
+
+Requirements are:
+- The service will allow anyone to register as a lottery participant.
+- Lottery participants will be able to submit as many ballots as they want for any lottery that isn't yet closed.
+- Each day at midnight the lottery event will be closed and a random lottery winner will be selected.
+- All users will be able to check the winning ballot for any specific date.
+- The service will have to persist the data regarding the lottery.
+- Provide a README.md
+
+Be creative and do not limit yourself by those requirements: use this exercise to show us what you can do best and what you are passionate about.
+Let us know if the requirements are not clear or if you have any questions.
+
+Some additional information about Bynder that might be useful in the assignment:
+- Incorrect domain modelling has been an issue in Bynder's past,
+  we have solved many company-wide problems by moving towards software guided by Domain Driven Design.
+- We prefer simplicity over complexity in our software solutions.
+- We value readable and maintainable code.
+
+Please send the assignment back in 5 days from now, so August 21th and we will schedule the next interview accordingly.
+So please also let us know when you are able to finish the assignment.
+
+
+routers
+0. authentication:
+  - login DONE
+
+1. user: username, ful_name, email, phone
+  - register: register as a lottery participant DONE
+
+2. lottery:
+  - submit_ballot: user_login, lottery_date(day), ballot(serial number) DONE
+  - check_winning_ballot: user_login, lottery_date(day) DONE
+
+
+*** lottery_schedular: everyday at midnight
+
+Model:
+
+UserBallot (oneToMany)
+  - username
+  - ballot
+  - date (day sensitivity!)
+
+after selecting the winning ballot, delete all the ballots for that date!
